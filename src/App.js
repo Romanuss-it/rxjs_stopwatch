@@ -42,7 +42,7 @@ function App() {
   }
 
 
-  const handleStop = () => {
+  const handleWait = () => {
     if (time !== 0) {
       setWatchOn(false);
     }
@@ -51,6 +51,12 @@ function App() {
 
 
   const handleReset = () => {
+    setTime(0);
+    setWatchOn(true);
+    setStatus(1);
+  }
+
+  const handleStop = () => {
     setTime(0);
     setWatchOn(false);
     setStatus(0);
@@ -67,9 +73,10 @@ function App() {
             />
             <BtnComponent
                 start={handleStart}
-                stop={handleStop}
+                wait={handleWait}
                 reset={handleReset}
                 resume={handleResume}
+                stop={handleStop}
                 status={status}
             />
           </div>
